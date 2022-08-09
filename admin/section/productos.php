@@ -21,15 +21,55 @@ switch($accion){
     case "Agregar":
         $sentenciaSQL= $conexion->prepare("INSERT INTO productos (nombre, imagen) VALUES (:nombre, :imagen);");
         $sentenciaSQL->bindParam(':nombre',$txtNombre);
-        $sentenciaSQL->bindParam(':imagen',$txtImagen);
+
+        $fecha =new DateTime();
+        $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
+
+        $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
+
+        if($tmpImagen!=""){
+            move_uploaded_file($tmpImagen,"../../img"."$nombreArchivo");
+        }
+
+        $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
         $sentenciaSQL->execute();
         break;
 
     case "Modificar":
-        echo "Presionando el boton Modificar";
+        
+        $sentenciaSQL= $conexion->prepare("UPDATE  productos SET nombre=:nombre WHERE id=:id");
+        $sentenciaSQL->bindParam(':nombre',$txtNombre);
+        $sentenciaSQL->bindParam(':id',$txtID);
+        $sentenciaSQL->execute();
+
+        if($txtImagen!=""){ 
+            $sentenciaSQL= $conexion->prepare("UPDATE  productos SET imagen=:imagen WHERE id=:id");
+            $sentenciaSQL->bindParam(':imagen',$txtImagen);
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+        }
         break;
+        
     case "Cancelar":
-        echo "Presionando el boton Cancelar";
+        
+        break;
+        
+    case "Seleccionar":
+        $sentenciaSQL= $conexion->prepare("SELECT * FROM productos WHERE id=:id");
+        $sentenciaSQL->bindParam(':id',$txtID);
+        $sentenciaSQL->execute();
+        $producto=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+        
+        $txtNombre=$producto['nombre'];
+        $txtImagen=$producto['imagen'];
+
+        break;
+    
+    case "Borrar":
+            $sentenciaSQL= $conexion->prepare("DELETE FROM productos WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+        
         break;
 
 }
@@ -37,6 +77,8 @@ switch($accion){
  $sentenciaSQL= $conexion->prepare("SELECT * FROM productos");
  $sentenciaSQL->execute();
  $listaProductos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 ?>
 <div class="col-md-5">
@@ -51,16 +93,19 @@ switch($accion){
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="txtID">ID:</label>
-                    <input type="text" class="form-control" name="txtID" id="txtID" placeholder="ID">
+                    <input type="text" class="form-control" value="<?php echo $txtID ?>" name="txtID" id="txtID"
+                        placeholder="ID">
                 </div>
 
                 <div class="form-group">
                     <label for="txtNombre">Nombre:</label>
-                    <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Nombre">
+                    <input type="text" class="form-control" value="<?php echo $txtNombre ?>" name="txtNombre"
+                        id="txtNombre" placeholder="Nombre">
                 </div>
 
                 <div class="form-group">
                     <label for="txtImagen">Imagen:</label>
+                    <?php echo $txtImagen ?>
                     <input type="file" class="form-control" name="txtImagen" id="txtImagen">
                 </div>
 
@@ -93,7 +138,14 @@ switch($accion){
                 <td><?php echo $producto['id']?></td>
                 <td><?php echo $producto['nombre']?></td>
                 <td><?php echo $producto['imagen']?></td>
-                <td></td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="txtID" id="txtID" value="<?php echo $producto['id']; ?>">
+                        <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary">
+                        <input type="submit" name="accion" value="Borrar" class="btn btn-danger">
+                    </form>
+
+                </td>
             </tr>
             <?php };?>
         </tbody>
@@ -103,4 +155,3 @@ switch($accion){
 </div>
 
 <?php include("../template/footer.php"); ?>
-use PDO;
