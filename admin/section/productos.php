@@ -26,9 +26,9 @@
                 </div>
 
                 <div class="btn-group" role="group" aria-label="">
-                    <button type="button" class="btn btn-success">Agregar</button>
-                    <button type="button" class="btn btn-warning">Modificar</button>
-                    <button type="button" class="btn btn-info">Cancelar</button>
+                    <button type="button" name="accion" class="btn btn-success">Agregar</button>
+                    <button type="button" name="accion" class="btn btn-warning">Modificar</button>
+                    <button type="button" name="accion" class="btn btn-info">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -39,7 +39,7 @@
 
 <div class="col-md-7">
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
@@ -50,12 +50,8 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row"></td>
                 <td></td>
                 <td></td>
-            </tr>
-            <tr>
-                <td scope="row"></td>
                 <td></td>
                 <td></td>
             </tr>
