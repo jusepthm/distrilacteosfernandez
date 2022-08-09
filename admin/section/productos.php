@@ -6,44 +6,37 @@ $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
 $txtImagen=(isset($_FILES['txtImagen']['name']))?$_FILES['txtImagen']['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
-echo $txtID."<br>";
+/* echo $txtID."<br>";
 echo $txtNombre."<br>";
 echo $txtImagen."<br>";
-echo $accion."<br>";
+echo $accion."<br>"; */
 
-$host="Localhost";
-$bd="sitio";
-$usuario="root";
-$contraseña="";
+include("../config/db.php");
 
-try {
-    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contraseña);
-    if($conexion){ echo "Conectando... a sitema"; }
-} catch (Exception $ex) {
-    echo $ex->getMessage();
-}
 
 
 
 switch($accion){
 
     case "Agregar":
-       // INSERT INTO `productos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'limon', 'imagen.jpg');
-        echo "Presionando el boton Agregar";
+        $sentenciaSQL= $conexion->prepare("INSERT INTO productos (nombre, imagen) VALUES (:nombre, :imagen);");
+        $sentenciaSQL->bindParam(':nombre',$txtNombre);
+        $sentenciaSQL->bindParam(':imagen',$txtImagen);
+        $sentenciaSQL->execute();
         break;
+
     case "Modificar":
         echo "Presionando el boton Modificar";
         break;
     case "Cancelar":
         echo "Presionando el boton Cancelar";
         break;
-    
-
-
-
-
 
 }
+
+ $sentenciaSQL= $conexion->prepare("SELECT * FROM productos");
+ $sentenciaSQL->execute();
+ $listaProductos=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <div class="col-md-5">
@@ -95,12 +88,14 @@ switch($accion){
             </tr>
         </thead>
         <tbody>
+            <?php foreach($listaProductos as $producto) { ?>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?php echo $producto['id']?></td>
+                <td><?php echo $producto['nombre']?></td>
+                <td><?php echo $producto['imagen']?></td>
                 <td></td>
             </tr>
+            <?php };?>
         </tbody>
     </table>
 
@@ -108,3 +103,4 @@ switch($accion){
 </div>
 
 <?php include("../template/footer.php"); ?>
+use PDO;
