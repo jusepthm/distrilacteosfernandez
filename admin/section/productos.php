@@ -11,16 +11,33 @@ echo $txtNombre."<br>";
 echo $txtImagen."<br>";
 echo $accion."<br>";
 
+$host="Localhost";
+$bd="sitio";
+$usuario="root";
+$contraseña="";
+
+try {
+    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contraseña);
+    if($conexion){ echo "Conectando... a sitema"; }
+} catch (Exception $ex) {
+    echo $ex->getMessage();
+}
+
+
+
 switch($accion){
-    case "":
-        echo "";
+
+    case "Agregar":
+       // INSERT INTO `productos` (`id`, `nombre`, `imagen`) VALUES (NULL, 'limon', 'imagen.jpg');
+        echo "Presionando el boton Agregar";
         break;
-    case "":
-        echo "";
+    case "Modificar":
+        echo "Presionando el boton Modificar";
         break;
-        case "":
-        echo "";
+    case "Cancelar":
+        echo "Presionando el boton Cancelar";
         break;
+    
 
 
 
