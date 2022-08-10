@@ -19,6 +19,7 @@ include("../config/db.php");
 switch($accion){
 
     case "Agregar":
+        
         $sentenciaSQL= $conexion->prepare("INSERT INTO productos (nombre, imagen) VALUES (:nombre, :imagen);");
         $sentenciaSQL->bindParam(':nombre',$txtNombre);
 
@@ -28,7 +29,7 @@ switch($accion){
         $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
 
         if($tmpImagen!=""){
-            move_uploaded_file($tmpImagen,"../../img"."$nombreArchivo");
+            move_uploaded_file($tmpImagen,"../../img/"."$nombreArchivo");
         }
 
         $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
@@ -43,6 +44,12 @@ switch($accion){
         $sentenciaSQL->execute();
 
         if($txtImagen!=""){ 
+            $fecha =new DateTime();
+            $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
+            $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
+
+            move_uploaded_file($tmpImagen,"../../img/"."$nombreArchivo");
+
             $sentenciaSQL= $conexion->prepare("UPDATE  productos SET imagen=:imagen WHERE id=:id");
             $sentenciaSQL->bindParam(':imagen',$txtImagen);
             $sentenciaSQL->bindParam(':id',$txtID);
@@ -55,6 +62,7 @@ switch($accion){
         break;
         
     case "Seleccionar":
+        
         $sentenciaSQL= $conexion->prepare("SELECT * FROM productos WHERE id=:id");
         $sentenciaSQL->bindParam(':id',$txtID);
         $sentenciaSQL->execute();
@@ -66,6 +74,20 @@ switch($accion){
         break;
     
     case "Borrar":
+
+            $sentenciaSQL= $conexion->prepare("SELECT imagen FROM productos WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+            $producto=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+
+            if(isset($producto["imagen"])&&($producto["imagen"]!="imagen.jpg")){
+                if(file_exists("../../img/".$producto["imagen"])){ 
+
+                    unlink("../../img/".$producto["imagen"]);
+
+                }
+            }
+
             $sentenciaSQL= $conexion->prepare("DELETE FROM productos WHERE id=:id");
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
