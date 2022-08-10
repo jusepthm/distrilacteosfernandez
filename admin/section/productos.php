@@ -34,6 +34,7 @@ switch($accion){
 
         $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
         $sentenciaSQL->execute();
+        header("Location:productos.php");
         break;
 
     case "Modificar":
@@ -49,16 +50,33 @@ switch($accion){
             $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
 
             move_uploaded_file($tmpImagen,"../../img/"."$nombreArchivo");
+            
+            $sentenciaSQL= $conexion->prepare("SELECT imagen FROM productos WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+            $producto=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+
+            if(isset($producto["imagen"])&&($producto["imagen"]!="imagen.jpg")){
+                if(file_exists("../../img/".$producto["imagen"])){ 
+
+                    unlink("../../img/".$producto["imagen"]);
+
+                }
+            }
+
 
             $sentenciaSQL= $conexion->prepare("UPDATE  productos SET imagen=:imagen WHERE id=:id");
-            $sentenciaSQL->bindParam(':imagen',$txtImagen);
+            $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
         }
+        header("Location:productos.php");
         break;
         
     case "Cancelar":
         
+        header("Location:productos.php");
+
         break;
         
     case "Seleccionar":
@@ -91,6 +109,7 @@ switch($accion){
             $sentenciaSQL= $conexion->prepare("DELETE FROM productos WHERE id=:id");
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
+            header("Location:productos.php");
         
         break;
 
@@ -115,8 +134,8 @@ switch($accion){
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="txtID">ID:</label>
-                    <input type="text" class="form-control" value="<?php echo $txtID ?>" name="txtID" id="txtID"
-                        placeholder="ID">
+                    <input type="text" required readonly class="form-control" value="<?php echo $txtID ?>" name="txtID"
+                        id="txtID" placeholder="ID">
                 </div>
 
                 <div class="form-group">
@@ -126,15 +145,24 @@ switch($accion){
                 </div>
 
                 <div class="form-group">
-                    <label for="txtImagen">Imagen:</label>
-                    <?php echo $txtImagen ?>
+                    <label for="txtImagen">Imagen:</label><br>
+
+                    <?php if($txtImagen!=""){?>
+
+                    <img class="img-thumbnail rounded" src="../../img/<?php echo $txtImagen?>" width="50" alt=""
+                        srcset="">
+
+                    <?php }?>
                     <input type="file" class="form-control" name="txtImagen" id="txtImagen">
                 </div>
-
+                <br>
                 <div class="btn-group" role="group" aria-label="">
-                    <button type="submit" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
-                    <button type="submit" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
-                    <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
+                    <button type="submit" name="accion" <?php echo ($accion=="Seleccionar")?"disabled":"" ?>
+                        value="Agregar" class="btn btn-success">Agregar</button>
+                    <button type="submit" name="accion" <?php echo ($accion!="Seleccionar")?"disabled":"" ?>
+                        value="Modificar" class="btn btn-warning">Modificar</button>
+                    <button type="submit" name="accion" <?php echo ($accion!="Seleccionar")?"disabled":"" ?>
+                        value="Cancelar" class="btn btn-info">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -159,7 +187,9 @@ switch($accion){
             <tr>
                 <td><?php echo $producto['id']?></td>
                 <td><?php echo $producto['nombre']?></td>
-                <td><?php echo $producto['imagen']?></td>
+                <td>
+                    <img src="../../img/<?php echo $producto['imagen']?>" width="50" alt="" srcset="">
+                </td>
                 <td>
                     <form method="post">
                         <input type="hidden" name="txtID" id="txtID" value="<?php echo $producto['id']; ?>">
