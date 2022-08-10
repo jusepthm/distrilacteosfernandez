@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <?php $url="http://".$_SERVER['HTTP_HOST']."/frutas&carbon" ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <ul class="nav navbar-nav">
@@ -29,7 +30,7 @@
                 <a class="nav-link" href="contacto.php">Contacto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="<?php echo $url; ?>/admin/index.php">Login</a>
             </li>
         </ul>
     </nav>
