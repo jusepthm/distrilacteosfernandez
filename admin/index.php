@@ -1,6 +1,14 @@
 <?php 
+session_start();
 if($_POST){
-    header('Location:inicio.php');
+    if(($_POST['usuario']=="admin")&&($_POST['contraseña']=="sistema")){
+       $_SESSION['usuario']=="ok";
+       $_SESSION['nombreUsuario']=="admin";
+        header('Location:inicio.php');
+    }else{
+        $mensaje="Error: el usuario o contraseña son incorrectos";   
+    }
+    
 }
 ?>
 
