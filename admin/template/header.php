@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 if(!isset($_SESSION['usuario'])){
     header('Location:../index.php');
@@ -8,10 +7,7 @@ if(!isset($_SESSION['usuario'])){
         $nombreUsuario=$_SESSION['nombreUsuario'];
     }
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

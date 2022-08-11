@@ -2,15 +2,14 @@
 session_start();
 if($_POST){
      if(($_POST['usuario']=="admin")&&($_POST['contraseña']=="sistema")){
-       $_SESSION['usuario']=="ok";
-       $_SESSION['nombreUsuario']=="admin";
+       $_SESSION['usuario']="ok";
+       $_SESSION['nombreUsuario']="admin";
         header('Location:inicio.php');
     }else{
         $mensaje="Error: el usuario o contraseña son incorrectos";   
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +25,6 @@ if($_POST){
 
     <div class="container">
         <div class="row">
-
             <div class="col-md-4"></div>
             <div class="col-md-4"><br><br>
                 <div class="card">
@@ -34,11 +32,13 @@ if($_POST){
                         Login
                     </div>
                     <div class="card-body">
+
                         <?php if(isset($mensaje)){ ?>
                         <div class="alert alert-danger" role="alert">
                             <?php echo $mensaje ?>
                         </div>
                         <?php }?>
+
                         <form method="POST">
                             <div class="form-group">
                                 <label>Usuario</label>
@@ -53,11 +53,10 @@ if($_POST){
 
                             <button type="submit" class="btn btn-primary">Entrar al administrador</button>
                         </form>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
