@@ -6,16 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frutas&carbon</title>
+    <!-- font - roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- styles css -->
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <!-- custum-- css -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <?php $url="http://".$_SERVER['HTTP_HOST']."/frutas&carbon" ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <ul class="nav navbar-nav">
+    <nav class="nav-main">
+        <img src="./img/logo.png" alt="logo" class="nav-brand">
+        <ul class="nav-menu">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Logo </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Inicio</a>
@@ -30,11 +37,11 @@
                 <a class="nav-link" href="contacto.php">Contacto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $url; ?>/admin/index.php">Login</a>
+                <a class="btn-login" href="<?php echo $url; ?>/admin/index.php">Login</a>
             </li>
         </ul>
     </nav>
 
 
-    <did class="container">
+    <div class="container">
         <div class="row">

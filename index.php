@@ -1,13 +1,57 @@
 <?php include("template/header.php"); ?>
 
-<div class="jumbotron">
-    <h1 class="display-3">Jumbo heading</h1>
-    <p class="lead">Jumbo helper text</p>
-    <hr class="my-2">
-    <p>More info</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-    </p>
+<br>
+<hr>
+<header class="showcase">
+    <h2>Carbon Vegetal</h2>
+    <a href="productos.php" class="btn">Ir a productos</a>
+
+</header>
+<!-- new cards -->
+<div class="news-cards">
+    <div>
+        <img src="img/piña.jpeg" alt="">
+        <h3>linea</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
+            libero
+            voluptates officiis voluptas tempora?</p>
+    </div>
+    <div>
+        <img src="img/piña.jpeg" alt="">
+        <h3>linea</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
+            libero
+            voluptates officiis voluptas tempora?</p>
+    </div>
+    <div>
+        <img src="img/piña.jpeg" alt="">
+        <h3>linea</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
+            libero
+            voluptates officiis voluptas tempora?</p>
+    </div>
+    <div>
+        <img src="img/piña.jpeg" alt="">
+        <h3>linea</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
+            libero
+            voluptates officiis voluptas tempora?</p>
+    </div>
 </div>
+<!-- social -->
+<section class="social">
+    <p>Siguenos</p>
+    <div class="links">
+        <a href="#">
+            <i class="fab fa-facebook-f"> Facebook</i>
+        </a>
+        <a href="#">
+            <i class="fab fa-instagram-f"> Instagram</i>
+        </a>
+        <a href="#">
+            <i class="fab fa-wassapp-f"> Wassapp</i>
+        </a>
+    </div>
+</section>
 
 <?php include("template/footer.php"); ?>
