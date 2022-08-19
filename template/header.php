@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php $url="http://".$_SERVER['HTTP_HOST']."/frutas&carbon" ?>
+    <?php $url="http://".$_SERVER['HTTP_HOST']."/distrilacteosfernandez" ?>
 
     <nav class="nav-main">
         <img src="./img/logo.png" alt="logo" class="nav-brand">

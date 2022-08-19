@@ -23,7 +23,7 @@ if(!isset($_SESSION['usuario'])){
 
 <body>
 
-    <?php $url="http://".$_SERVER['HTTP_HOST']."/frutas&carbon" ?>
+    <?php $url="http://".$_SERVER['HTTP_HOST']."/distrilacteosfernandez" ?>
 
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
