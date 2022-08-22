@@ -1,5 +1,5 @@
 <?php include("template/header.php"); ?>
-<h1 class="contactame">Contactame</h1>
+<h1 class="contactame">Contactanos</h1>
 <hr>
 <div class="col-md-3"></div>
 <div class="col-md-6">
