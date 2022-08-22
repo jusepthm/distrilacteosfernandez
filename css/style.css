@@ -1,5 +1,9 @@
 :root {
-    --letra-color: #ffffff;
+    --blanco: #fafafa;
+    --dorado: goldenrod;
+    --verdeClaro: #02b875;
+    --verdeOscuro: #86a846;
+
 }
 
 * {
@@ -9,10 +13,10 @@
 }
 
 body {
-    background-color: #fafafa;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%23003400' fill-opacity='0.2' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+    background-color: var(--blanco);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%23003400' fill-opacity='0.1' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
     font-size: 16px;
-    color: goldenrod;
+    color: var(--dorado);
 }
 
 a {
@@ -32,7 +36,7 @@ ul {
 /* Navegacion*/
 
 .nav-main {
-    background-color: #02b875;
+    background-color: var(--verdeClaro);
     font-size: 17px;
     display: flex;
     justify-content: space-between;
@@ -42,7 +46,7 @@ ul {
 }
 
 .nav-brand {
-    width: 7%;
+    width: 8%;
     padding: 0.5rem 0.5rem;
     margin-left: 1rem;
     border-radius: 10%;
@@ -60,7 +64,7 @@ ul {
 
 .nav-main ul li a {
     padding: 6px;
-    color: var(--letra-color);
+    color: var(--blanco);
 }
 
 .nav-main ul li a:hover {
@@ -95,10 +99,10 @@ ul {
     border: 0;
     font-weight: bold;
     padding: 10px 20px;
-    background: #86a846;
-    color: #ffffff;
+    background: var(--verdeOscuro);
+    color: var(--blanco);
     font-size: 15px;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--blanco);
     margin: 10px 0;
 }
 
@@ -132,9 +136,9 @@ ul {
     font-weight: bold;
     padding: 10px 20px;
     background: transparent;
-    color: #ffffff;
+    color: var(--blanco);
     font-size: 15px;
-    border: 1px solid var(--letra-color);
+    border: 1px solid var(--verdeClaro);
     border-radius: 20%;
     margin: 10px 0;
 }
@@ -166,15 +170,15 @@ ul {
 
 /*footer links*/
 .footer-links {
-    background: #02b875;
-    color: #fafafa;
+    background: var(--verdeClaro);
+    color: var(--blanco);
     font-size: 20px;
     padding: 35px 0;
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     align-items: flex-start;
     justify-content: center;
@@ -189,10 +193,14 @@ ul {
 }
 
 .footer {
-    background: #02b875;
-    color: #fafafa;
+    background: var(--verdeClaro);
+    color: var(--blanco);
     font-size: 12px;
     padding: 20px 0;
     text-align: center;
     padding-bottom: 20px;
+}
+
+.contactame {
+    text-align: center;
 }

@@ -7,6 +7,7 @@
 ?>
 
 <h1>Productos</h1>
+<hr>
 
 <?php foreach($listaProductos as $producto){ ?>
 <div class="col-md-3">

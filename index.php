@@ -2,6 +2,9 @@
 
 <br>
 <hr>
+<h1>Distrilacteos Fernandez S.A.S.</h1>
+<hr>
+<br>
 <header class="showcase">
     <h2>Carbon Vegetal</h2>
     <a href="productos.php" class="btn">Ir a productos</a>
@@ -40,7 +43,7 @@
 </div>
 <!-- social -->
 <section class="social">
-    <p>Siguenos</p>
+    <p>Siguenos:</p>
     <div class="links">
         <a href="#">
             <i class="fab fa-facebook-f"> Facebook</i>
@@ -49,7 +52,7 @@
             <i class="fab fa-instagram-f"> Instagram</i>
         </a>
         <a href="#">
-            <i class="fab fa-wassapp-f"> Wassapp</i>
+            <i class="fab fa-wassapp-f"> WhatsApp</i>
         </a>
     </div>
 </section>

@@ -2,100 +2,73 @@
 
         </div>
         </div>
+        <?php $url2="http://wa.me/573004858017" ?>
         <div class="footer-links">
             <div class="footer-container">
                 <ul>
                     <li>
-                        <a href="#">
-                            <h3>Navegacion</h3>
-                        </a>
+
+                        <h3>Navegacion</h3>
+
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="productos.php">
                             Productos
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="nosotros.php">
                             Nosotros
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="contacto.php">
                             Contacto
                         </a>
                     </li>
                 </ul>
                 <ul>
                     <li>
-                        <a href="#">
-                            <h3>Navegacion</h3>
-                        </a>
+
+                        <h3>Atencion al cliente</h3>
+
                     </li>
                     <li>
-                        <a href="#">
-                            Productos
-                        </a>
+                        <p>Distrilacteos Fernandez S.A.S </p>
+                        <p>Calle 39 No 43 - 123 piso 8 oficina G24</p>
+                        <p>Barranquilla Colombia</p>
+                        <p>LLamanos al numero (3122836368)</p>
+
                     </li>
-                    <li>
-                        <a href="#">
-                            Nosotros
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Contacto
-                        </a>
-                    </li>
+
                 </ul>
+
                 <ul>
                     <li>
+
+                        <h3>Siguenos</h3>
+
+                    </li>
+                    <li>
                         <a href="#">
-                            <h3>Navegacion</h3>
+                            Facebook
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            Productos
+                            Instagram
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            Nosotros
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Contacto
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <h3>Navegacion</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Productos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Nosotros
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Contacto
+                        <a href="<?php echo $url2; ?>">
+                            WhatsApp
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <footer class="footer">
-            <h3>New Copyright</h3>
+            <h4>Copyright Distrilacteos fernandez S.A.S. 2022</h4>
         </footer>
 
         </body>
