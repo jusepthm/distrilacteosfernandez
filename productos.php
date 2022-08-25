@@ -8,18 +8,24 @@
 
 <h1>Productos</h1>
 <hr>
+<div class="container-card">
 
-<?php foreach($listaProductos as $producto){ ?>
-<div class="col-md-3">
+    <?php foreach($listaProductos as $producto){ ?>
     <div class="card">
-        <img class="card-img-top" src="./img/<?php echo $producto['imagen']; ?>" alt="">
-        <div class="card-body">
-            <h4 class="card-title"><?php echo $producto['nombre']; ?></h4>
+
+        <figure>
+            <img src="./img/<?php echo $producto['imagen']; ?>" alt="">
+        </figure>
+        <div class="contenido">
+            <h3><?php echo $producto['nombre']; ?></h3>
             <!-- <p class="card-text">Text</p> -->
         </div>
+
     </div>
+    <?php } ?>
+
 </div>
-<?php } ?>
+<hr>
 
 
 <?php include("template/footer.php"); ?>

@@ -37,7 +37,8 @@
                 <a class="nav-link" href="contacto.php">Contacto</a>
             </li>
             <li class="nav-item">
-                <a class="btn-login" href="<?php echo $url; ?>/admin/index.php">Login</a>
+
+                <!-- <a class="btn-login" href="<?php echo $url; ?>/admin/index.php">Admin</a> -->
             </li>
         </ul>
     </nav>

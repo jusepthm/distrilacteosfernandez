@@ -10,51 +10,45 @@
     <a href="productos.php" class="btn">Ir a productos</a>
 
 </header>
+<hr>
 <!-- new cards -->
 <div class="news-cards">
     <div>
-        <img src="img/piña.jpeg" alt="">
-        <h3>linea</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
-            libero
-            voluptates officiis voluptas tempora?</p>
+        <img src="img/Batata.jpg" alt="">
+        <h3>Batata</h3>
+
+    </div>
+    <div>
+        <img src="img/Banano.jpg" alt="">
+        <h3>Banano</h3>
+
+    </div>
+    <div>
+        <img src="img/guayaba.jpg" alt="">
+        <h3>Guayaba</h3>
+
     </div>
     <div>
         <img src="img/piña.jpeg" alt="">
-        <h3>linea</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
-            libero
-            voluptates officiis voluptas tempora?</p>
-    </div>
-    <div>
-        <img src="img/piña.jpeg" alt="">
-        <h3>linea</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
-            libero
-            voluptates officiis voluptas tempora?</p>
-    </div>
-    <div>
-        <img src="img/piña.jpeg" alt="">
-        <h3>linea</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati repellat cumque et eius voluptate
-            libero
-            voluptates officiis voluptas tempora?</p>
+        <h3>Piña</h3>
+
     </div>
 </div>
+<hr>
 <!-- social -->
-<section class="social">
-    <p>Siguenos:</p>
+<!-- <section class="social">
+    <h3>Síguenos:</h3>
     <div class="links">
         <a href="#">
-            <i class="fab fa-facebook-f"> Facebook</i>
+            <img src="img/icon_faceB.png" alt="">
         </a>
         <a href="#">
-            <i class="fab fa-instagram-f"> Instagram</i>
+            <img src="img/icon_instaB.png" alt="">
         </a>
         <a href="#">
-            <i class="fab fa-wassapp-f"> WhatsApp</i>
+            <img src="img/icon_waB.png" alt="">
         </a>
     </div>
-</section>
+</section> -->
 
 <?php include("template/footer.php"); ?>
