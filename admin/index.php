@@ -29,7 +29,7 @@ if($_POST){
             <div class="col-md-4"><br><br>
                 <div class="card">
                     <div class="card-header">
-                        Login
+                        Administrador
                     </div>
                     <div class="card-body">
 

@@ -14,7 +14,7 @@ require 'PHPMailer/SMTP.php';
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
-if(isset($_POST['nombre']) & isset($_POST['email'])& isset($_POST['telefono'])& isset($_POST['mensaje'])){
+if(isset($_POST['nombre']) & isset($_POST['email']) & isset($_POST['telefono']) & isset($_POST['mensaje'])){
     $nombre=$_POST['nombre'];
     $email=$_POST['email'];
     $telefono=$_POST['telefono'];
@@ -48,11 +48,9 @@ $mail->Body = "$datos";
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
 $mail->send();
-echo "Mensaje de: ".$nombre;
-echo "Numero de telefono: ".$telefono;
-echo "Correo es: ".$email;
-echo "Mensaje es: ".$mensaje;
 } catch (Exception $e) {
 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 }
+header('Location:contacto.php');
+?>
