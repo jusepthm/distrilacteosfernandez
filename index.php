@@ -29,7 +29,7 @@
 
     </div>
     <div>
-        <img src="img/piña.jpeg" alt="">
+        <img src="img/piña.jpg" alt="">
         <h3>Piña</h3>
 
     </div>

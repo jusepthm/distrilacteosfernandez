@@ -3,23 +3,25 @@
 <hr>
 <div class="col-md-3"></div>
 <div class="col-md-6">
-    <form class="form text-center" action="https://formsubmit.co/maronismartinez@gmail.com" method="POST">
+    <form class="form text-center" action="enviar.php" method="POST">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input type="nombre" class="form-control text-center" id="nombre" a placeholder="Escriba su nombre">
+            <input type="nombre" class="form-control text-center" name="nombre" id="nombre" a
+                placeholder="Escriba su nombre">
         </div>
         <div class="form-group">
             <label for="nombre">Email:</label>
-            <input type="email" class="form-control text-center" id="email" a placeholder="Escriba su correo">
+            <input type="email" class="form-control text-center" name="email" id="email" a
+                placeholder="Escriba su correo">
         </div>
         <div class="form-group">
             <label for="telefono">Telefono:</label>
-            <input type="number" class="form-control text-center" id="telefono" a
+            <input type="number" class="form-control text-center" name="telefono" id="telefono" a
                 placeholder="Digite su numero telefonico">
         </div>
         <div class="form-group">
-            <label for="comentario">Mensaje:</label>
-            <input type="texarea" class="form-control text-center" id="comentario" a
+            <label for="mensaje">Mensaje:</label>
+            <input type="texarea" class="form-control text-center" name="mensaje" id="mensaje" a
                 placeholder="Escriba su mensaje ¡aqui!">
         </div>
 
